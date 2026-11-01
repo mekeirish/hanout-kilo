@@ -1,7 +1,10 @@
 {
   "settings": {
     "title": "Boutique de kilo",
+    "tagline": "",
     "currency": "DZD",
+    "accent": "#ea580c",
+    "logo": "https://res.cloudinary.com/h91be5lz/image/upload/v1793547092/hanout_products/xl1bykhzvc9qjlwwwmsy.jpg",
     "showStock": true,
     "ntfyTopic": "kilo_commandes"
   },
