@@ -8,6 +8,21 @@
     "showStock": true,
     "ntfyTopic": "kilo_commandes"
   },
-  "categories": [],
-  "products": []
+  "categories": [
+    {
+      "id": 1,
+      "name": "Pains"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Coconut khobz",
+      "price": 1.5,
+      "image": "https://res.cloudinary.com/h91be5lz/image/upload/v1793549998/hanout_products/rsags8cqxbl0gkvh6gp0.jpg",
+      "categoryId": 1,
+      "stock": 30,
+      "description": "Khobiiiiiiiz"
+    }
+  ]
 }
