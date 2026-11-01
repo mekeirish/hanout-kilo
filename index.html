@@ -25,28 +25,28 @@
 
   <style>
     /* =========================================================
-       THÃME (les couleurs d'accent sont modifiÃ©es par la boutique)
+       THÈME (les couleurs d'accent sont modifiées par la boutique)
        ========================================================= */
     :root {
       --accent: #0f766e;
-      --accent-2: #0b5a54;
+      --accent-2: #115e59;
       --accent-ink: #ffffff;
       --accent-soft: rgba(15, 118, 110, 0.12);
       --chip-bg: rgba(255, 255, 255, 0.2);
 
-      --bg: #f4f5f7;
+      --bg: #f6f8f7;
       --surface: #ffffff;
-      --surface-2: #eef0f3;
-      --ink: #0f172a;
-      --ink-2: #475569;
-      --ink-3: #8a94a6;
-      --line: #e3e6eb;
+      --surface-2: #e9efec;
+      --ink: #14211c;
+      --ink-2: #4b5d56;
+      --ink-3: #82938c;
+      --line: #e1e8e4;
 
       --danger: #dc2626;
       --danger-soft: rgba(220, 38, 38, 0.1);
       --warn: #d97706;
       --ok: #059669;
-      --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 6px 20px rgba(15, 23, 42, 0.06);
+      --shadow: 0 1px 2px rgba(20, 33, 28, 0.05), 0 8px 22px rgba(20, 33, 28, 0.08);
 
       --hdr: 56px;
       --safe-top: env(safe-area-inset-top, 0px);
@@ -54,13 +54,17 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0b1120;
-        --surface: #131c2e;
-        --surface-2: #1b2740;
-        --ink: #f1f5f9;
-        --ink-2: #b4bfd0;
-        --ink-3: #7f8ba0;
-        --line: #243049;
+        --accent: #2dd4bf;
+        --accent-2: #14b8a6;
+        --accent-ink: #062a26;
+        --accent-soft: rgba(45, 212, 191, 0.15);
+        --bg: #0b1512;
+        --surface: #121f1b;
+        --surface-2: #1a2c26;
+        --ink: #eef5f2;
+        --ink-2: #b2c3bb;
+        --ink-3: #7b8e86;
+        --line: #223630;
         --danger: #f87171;
         --danger-soft: rgba(248, 113, 113, 0.14);
         --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
@@ -103,7 +107,7 @@
        ========================================================= */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      min-height: 44px; padding: 0 18px; border-radius: 12px;
+      min-height: 46px; padding: 0 18px; border-radius: 13px;
       font-weight: 600; font-size: 15px; white-space: nowrap;
       transition: transform 0.1s, opacity 0.2s, background 0.2s;
       text-decoration: none;
@@ -115,7 +119,7 @@
     .btn-ghost { background: var(--surface-2); color: var(--ink); }
     .btn-danger { background: var(--danger-soft); color: var(--danger); }
     .btn-block { width: 100%; }
-    .btn-sm { min-height: 40px; padding: 0 14px; font-size: 14px; }
+    .btn-sm { min-height: 40px; padding: 0 14px; font-size: 14px; border-radius: 11px; }
     .link-btn { color: var(--accent); font-weight: 600; font-size: 14px; padding: 8px 0; min-height: 40px; }
 
     .icon-btn {
@@ -132,7 +136,7 @@
     }
 
     /* =========================================================
-       EN-TÃTE (hauteur fixe : jamais de retour Ã  la ligne)
+       EN-TÊTE (hauteur fixe : jamais de retour à la ligne)
        ========================================================= */
     .topbar {
       position: sticky; top: 0; z-index: 30;
@@ -143,35 +147,31 @@
       height: var(--hdr); max-width: 1100px; margin: 0 auto;
       display: flex; align-items: center; gap: 4px; padding: 0 8px 0 16px;
     }
-    /* Dans SOG, le bouton Â« Retour Â» est posÃ© par-dessus l'iframe (haut-gauche) :
-       on lui rÃ©serve la place pour qu'il ne cache rien. */
+    /* Dans SOG, le bouton « Retour » est posé par-dessus l'iframe (haut-gauche) :
+       on lui réserve la place pour qu'il ne cache rien. */
     .in-frame .topbar-in { padding-left: 116px; }
     .in-frame .brand-mark { display: none; }
     .brand { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; }
-    .brand-logo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex: none; background: var(--surface-2); }
+    .brand-logo { width: 34px; height: 34px; border-radius: 10px; object-fit: cover; flex: none; background: var(--surface-2); }
     .brand-mark {
-      width: 32px; height: 32px; border-radius: 50%; flex: none;
-      background: var(--accent); color: var(--accent-ink);
+      width: 34px; height: 34px; border-radius: 10px; flex: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink);
       display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px;
     }
-    .brand-name { font-weight: 700; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-name { font-weight: 800; font-size: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* =========================================================
        ACCUEIL
        ========================================================= */
     .hero { padding: 16px 0 4px; }
-    .hero-card {
-      border-radius: 20px; padding: 18px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: var(--accent-ink);
-    }
-    .hero-title { font-size: 20px; font-weight: 800; line-height: 1.25; }
-    .hero-sub { margin-top: 6px; font-size: 14px; opacity: 0.9; }
+    .hero-card { border-radius: 20px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .hero-title { font-size: 18px; font-weight: 800; line-height: 1.25; }
+    .hero-sub { margin-top: 6px; font-size: 14px; color: var(--ink-2); }
     .hero-chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
     .hero-chip {
       display: inline-flex; align-items: center; gap: 6px;
       min-height: 28px; padding: 0 12px; border-radius: 14px;
-      background: var(--chip-bg); font-size: 13px; font-weight: 600;
+      background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 600;
     }
 
     .search { position: relative; margin-top: 12px; }
@@ -194,7 +194,7 @@
     }
     .chips::-webkit-scrollbar { display: none; }
     .chip {
-      flex: none; height: 38px; padding: 0 16px; border-radius: 19px;
+      flex: none; height: 40px; padding: 0 16px; border-radius: 19px;
       background: var(--surface); border: 1px solid var(--line);
       font-size: 14px; font-weight: 600; color: var(--ink-2); white-space: nowrap;
     }
@@ -211,11 +211,11 @@
     @media (min-width: 640px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
     @media (min-width: 960px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
-    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; box-shadow: var(--shadow); }
+    .card { background: var(--surface); border: 0; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; box-shadow: var(--shadow); }
     .card-img { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; background: var(--surface-2); overflow: hidden; }
     .card-img img { width: 100%; height: 100%; object-fit: cover; }
-    .ribbon { position: absolute; left: 8px; top: 8px; padding: 4px 10px; border-radius: 10px; background: rgba(15, 23, 42, 0.82); color: #fff; font-size: 12px; font-weight: 700; }
-    .card-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+    .ribbon { position: absolute; left: 8px; top: 8px; padding: 4px 10px; border-radius: 10px; background: rgba(8, 20, 15, 0.78); color: #fff; font-size: 12px; font-weight: 700; }
+    .card-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
     .card-cat { font-size: 12px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .card-name {
       cursor: pointer; font-size: 15px; font-weight: 600; line-height: 1.3; min-height: 2.6em;
@@ -226,7 +226,7 @@
     .stock-note.low { color: var(--warn); font-weight: 600; }
     .card-act { margin-top: auto; padding-top: 8px; }
 
-    .stepper { display: flex; align-items: center; justify-content: space-between; height: 44px; border-radius: 12px; background: var(--accent-soft); }
+    .stepper { display: flex; align-items: center; justify-content: space-between; height: 44px; border-radius: 13px; background: var(--accent-soft); }
     .stepper button { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: var(--accent); border-radius: 12px; }
     .stepper button[disabled] { opacity: 0.35; }
     .stepper .q { min-width: 28px; text-align: center; font-weight: 700; }
@@ -238,7 +238,7 @@
     .empty h3 { font-size: 17px; color: var(--ink); margin-bottom: 4px; }
 
     .skel { background: linear-gradient(90deg, var(--surface-2) 25%, var(--line) 37%, var(--surface-2) 63%); background-size: 200% 100%; animation: shimmer 1.3s linear infinite; border-radius: 12px; }
-    .skel-card { border-radius: 16px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
+    .skel-card { border-radius: 20px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
     .skel-card .skel { border-radius: 0; aspect-ratio: 1 / 1; }
     .skel-line { height: 12px; margin: 12px 12px 0; }
     .skel-line.s { width: 40%; margin-bottom: 14px; }
@@ -250,23 +250,23 @@
        ========================================================= */
     .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding: 0 12px calc(12px + var(--safe-bottom)); display: flex; justify-content: center; pointer-events: none; }
     .dock-btn {
-      pointer-events: auto; width: 100%; max-width: 560px; height: 56px; padding: 0 18px; border-radius: 16px;
+      pointer-events: auto; width: 100%; max-width: 560px; height: 56px; padding: 0 18px; border-radius: 18px;
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 10px 28px rgba(8, 20, 15, 0.28);
     }
     .dock-btn[disabled] { opacity: 0.6; }
     .dock-l { display: flex; align-items: center; gap: 10px; min-width: 0; }
 
     .toasts { position: fixed; left: 0; right: 0; z-index: 70; display: flex; justify-content: center; padding: 0 12px; pointer-events: none; }
-    .toast { pointer-events: auto; max-width: 520px; padding: 12px 16px; border-radius: 12px; background: #0f172a; color: #fff; font-size: 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); animation: up 0.2s ease-out; }
+    .toast { pointer-events: auto; max-width: 520px; padding: 12px 16px; border-radius: 14px; background: #14211c; color: #fff; font-size: 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); animation: up 0.2s ease-out; }
     .toast.success { background: #065f46; }
     .toast.error { background: #991b1b; }
 
     /* =========================================================
-       FEUILLES (panier, produit, formulaires) : jamais coupÃ©es
+       FEUILLES (panier, produit, formulaires) : jamais coupées
        ========================================================= */
-    .overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 50; background: rgba(15, 23, 42, 0.55); display: flex; align-items: flex-end; justify-content: center; animation: fade 0.2s; }
+    .overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 50; background: rgba(8, 20, 15, 0.55); display: flex; align-items: flex-end; justify-content: center; animation: fade 0.2s; }
     .overlay.center { align-items: center; padding: 20px; z-index: 80; }
     .sheet {
       width: 100%; max-width: 560px; max-height: 92vh; max-height: 92dvh;
@@ -281,14 +281,14 @@
       .overlay { align-items: center; padding: 24px; }
       .sheet { border-radius: 22px; max-height: 90vh; max-height: 90dvh; }
     }
-    /* Dans SOG : on garde le haut libre pour le bouton Â« Retour Â» de l'application */
+    /* Dans SOG : on garde le haut libre pour le bouton « Retour » de l'application */
     .in-frame .sheet { max-height: calc(100vh - 64px); max-height: calc(100dvh - 64px); }
-    .dialog { width: 100%; max-width: 400px; background: var(--surface); border-radius: 20px; padding: 20px; animation: up 0.2s ease-out; }
+    .dialog { width: 100%; max-width: 400px; background: var(--surface); border-radius: 22px; padding: 20px; animation: up 0.2s ease-out; }
     .dialog h3 { font-size: 18px; margin-bottom: 8px; }
     .dialog p { color: var(--ink-2); font-size: 15px; }
     .dialog .d-act { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-    /* DÃ©tail produit */
+    /* Détail produit */
     .pd-img { width: 100%; aspect-ratio: 4 / 3; border-radius: 16px; object-fit: cover; background: var(--surface-2); }
     .pd-cat { margin-top: 14px; display: inline-block; padding: 4px 12px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 600; }
     .pd-name { margin-top: 8px; font-size: 22px; font-weight: 800; line-height: 1.25; word-break: break-word; }
@@ -346,7 +346,7 @@
     .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--surface-2); padding: 4px; border-radius: 14px; }
     .seg button { min-height: 40px; border-radius: 10px; font-weight: 600; font-size: 14px; color: var(--ink-2); }
     .seg button.on { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
-    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px; margin-bottom: 14px; }
     .panel h3 { font-size: 16px; margin-bottom: 12px; }
     .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 8px 0 12px; }
     .bar b { font-size: 15px; }
@@ -363,7 +363,7 @@
 </head>
 <body>
 <div id="root"><div class="boot"><div class="spinner"></div></div></div>
-<noscript><p style="padding:24px;font-family:sans-serif">Cette boutique nÃ©cessite JavaScript.</p></noscript>
+<noscript><p style="padding:24px;font-family:sans-serif">Cette boutique nécessite JavaScript.</p></noscript>
 
 <script type="text/babel">
   const { useState, useEffect, useRef } = React;
@@ -389,35 +389,41 @@
   var auth = firebase.auth();
   var db = firebase.database();
 
-  // La boutique est-elle affichÃ©e dans l'iframe de SOG ?
+  // La boutique est-elle affichée dans l'iframe de SOG ?
   var IN_FRAME = (function () { try { return window.parent !== window; } catch (e) { return true; } })();
 
-  // Catalogue de dÃ©monstration (affichÃ© seulement sur le dÃ©pÃ´t template lui-mÃªme)
+  // Catalogue de démonstration (affiché seulement sur le dépôt template lui-même)
   var DEMO_RAW = {
-    settings: { title: "Boutique dÃ©mo", tagline: "AperÃ§u du template : voici le rendu de votre boutique.", currency: "DZD", showStock: true, accent: "#0f766e", ntfyTopic: "" },
-    categories: [{ id: 1, name: "Ãpicerie" }, { id: 2, name: "Boissons" }, { id: 3, name: "FraÃ®cheur" }],
+    settings: { title: "Boutique démo", tagline: "Aperçu du template : voici le rendu de votre boutique.", currency: "DZD", showStock: true, accent: "#0f766e", ntfyTopic: "" },
+    categories: [{ id: 1, name: "Épicerie" }, { id: 2, name: "Boissons" }, { id: 3, name: "Fraîcheur" }],
     products: [
-      { id: 1, name: "Huile d'olive extra vierge 1 L", price: 1250, image: "", categoryId: 1, stock: 12, description: "PressÃ©e Ã  froid.\nBouteille en verre de 1 litre." },
-      { id: 2, name: "CafÃ© moulu 250 g", price: 690, image: "", categoryId: 1, stock: 4, description: "" },
-      { id: 3, name: "Eau minÃ©rale 1,5 L", price: 45, image: "", categoryId: 2, stock: 80, description: "" },
+      { id: 1, name: "Huile d'olive extra vierge 1 L", price: 1250, image: "", categoryId: 1, stock: 12, description: "Pressée à froid.\nBouteille en verre de 1 litre." },
+      { id: 2, name: "Café moulu 250 g", price: 690, image: "", categoryId: 1, stock: 4, description: "" },
+      { id: 3, name: "Eau minérale 1,5 L", price: 45, image: "", categoryId: 2, stock: 80, description: "" },
       { id: 4, name: "Jus d'orange 1 L", price: 310, image: "", categoryId: 2, stock: 0, description: "" },
       { id: 5, name: "Tomates (kg)", price: 120, image: "", categoryId: 3, stock: null, description: "Prix au kilo." },
-      { id: 6, name: "Fromage frais artisanal avec un nom trÃ¨s long pour tester", price: 480, image: "", categoryId: 3, stock: 9, description: "" }
+      { id: 6, name: "Fromage frais artisanal avec un nom très long pour tester", price: 480, image: "", categoryId: 3, stock: 9, description: "" }
     ]
   };
 
   // =========================================================
   // UTILITAIRES
   // =========================================================
+  // Répare les textes déjà corrompus (« Ã© » au lieu de « é » : UTF-8 lu comme Latin-1).
+  var fixMojibake = function (str) {
+    str = String(str);
+    if (!/[ÃÂâ][\u0080-\u00BF€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ]/.test(str)) return str;
+    try { return decodeURIComponent(escape(str)); } catch (e) { return str; }
+  };
   var decodeEntities = function (str) {
     if (!str) return "";
-    try { var t = document.createElement("textarea"); t.innerHTML = String(str); return t.value; } catch (e) { return String(str); }
+    try { var t = document.createElement("textarea"); t.innerHTML = String(str); return fixMojibake(t.value); } catch (e) { return fixMojibake(str); }
   };
   var lsGet = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
   var lsSet = function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} };
   var utf8ToBase64 = function (s) { return btoa(unescape(encodeURIComponent(s))); };
   var base64ToUtf8 = function (s) { try { return decodeURIComponent(escape(atob(String(s).replace(/\s/g, "")))); } catch (e) { return ""; } };
-  var fold = function (s) { return String(s || "").toLowerCase().normalize("NFD").replace(/[Ì-Í¯]/g, ""); };
+  var fold = function (s) { return String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); };
 
   var safeUrl = function (u) {
     u = String(u || "").trim();
@@ -426,16 +432,16 @@
   var formatMoney = function (n, cur) {
     var v = Number(n) || 0;
     var s = v.toLocaleString("fr-FR", { minimumFractionDigits: v % 1 === 0 ? 0 : 2, maximumFractionDigits: 2 });
-    return s + "Â " + (cur || "");
+    return s + " " + (cur || "");
   };
-  // Images Cloudinary : version lÃ©gÃ¨re et automatique (WebP/AVIF) pour le mobile
+  // Images Cloudinary : version légère et automatique (WebP/AVIF) pour le mobile
   var optimizeImg = function (url, w) {
     if (!w || url.indexOf("res.cloudinary.com") === -1) return url;
     return url.replace(/\/upload\/(v\d+\/)/, "/upload/f_auto,q_auto,w_" + w + ",c_limit/$1");
   };
   var PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#e2e8f0"/>' +
-    '<g fill="none" stroke="#94a3b8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">' +
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#e3ebe7"/>' +
+    '<g fill="none" stroke="#8aa299" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">' +
     '<path d="M70 80l-12 16v52a8 8 0 008 8h68a8 8 0 008-8V96l-12-16z"/><path d="M58 96h84"/><path d="M122 114a22 22 0 01-44 0"/></g></svg>'
   );
 
@@ -464,7 +470,7 @@
     if (meta) meta.setAttribute("content", accent);
   };
 
-  // Catalogue : normalisation (tolÃ¨re les anciens fichiers don.json)
+  // Catalogue : normalisation (tolère les anciens fichiers don.json)
   var parseStock = function (v) {
     if (v === undefined || v === null || v === "") return null;
     var n = Number(v);
@@ -516,7 +522,7 @@
     return n;
   };
 
-  // GitHub : lecture / Ã©criture du catalogue (don.json)
+  // GitHub : lecture / écriture du catalogue (don.json)
   var apiUrl = function (repo) { return "https://api.github.com/repos/" + GITHUB_OWNER + "/" + repo + "/contents/don.json"; };
   var fetchCatalog = async function (repo, token) {
     if (!token) {
@@ -526,7 +532,7 @@
         if (r.ok) return { status: "ok", json: await r.json() };
       } catch (e) {}
     }
-    // 2) API GitHub (contenu le plus rÃ©cent)
+    // 2) API GitHub (contenu le plus récent)
     try {
       var headers = token ? { Authorization: "token " + token } : {};
       var res = await fetch(apiUrl(repo) + "?ref=main&t=" + Date.now(), { headers: headers });
@@ -558,9 +564,9 @@
     var sha = null;
     var g = await fetch(url + "?ref=main&t=" + Date.now(), { headers: headers });
     if (g.ok) sha = (await g.json()).sha;
-    else if (g.status === 401 || g.status === 403) throw new Error("token refusÃ© (" + g.status + "). VÃ©rifiez ses droits sur ce dÃ©pÃ´t.");
+    else if (g.status === 401 || g.status === 403) throw new Error("token refusé (" + g.status + "). Vérifiez ses droits sur ce dépôt.");
     else if (g.status !== 404) throw new Error("GitHub " + g.status);
-    var body = { message: "Mise Ã  jour du catalogue", content: utf8ToBase64(JSON.stringify(content, null, 2)), branch: "main" };
+    var body = { message: "Mise à jour du catalogue", content: utf8ToBase64(JSON.stringify(content, null, 2)), branch: "main" };
     if (sha) body.sha = sha;
     var put = await fetch(url, {
       method: "PUT",
@@ -574,7 +580,7 @@
     }
   };
 
-  // Cloudinary : chargÃ© seulement quand le vendeur tÃ©lÃ©verse une image
+  // Cloudinary : chargé seulement quand le vendeur téléverse une image
   var cloudinaryPromise = null;
   var loadCloudinary = function () {
     if (window.cloudinary) return Promise.resolve(window.cloudinary);
@@ -602,9 +608,9 @@
         clientAllowedFormats: ["jpg", "jpeg", "png", "gif", "webp"],
         maxImageFileSize: 5000000,
         language: "fr",
-        text: { fr: { queue: { title: "Image", title_uploading_with_counter: "Envoi en coursâ¦" } } }
+        text: { fr: { queue: { title: "Image", title_uploading_with_counter: "Envoi en cours…" } } }
       }, function (error, result) {
-        if (error) { onError("Le tÃ©lÃ©versement a Ã©chouÃ©."); return; }
+        if (error) { onError("Le téléversement a échoué."); return; }
         if (result && result.event === "success") onUrl(result.info.secure_url);
       });
       widget.open();
@@ -612,7 +618,7 @@
   };
 
   // =========================================================
-  // ICÃNES
+  // ICÔNES
   // =========================================================
   var ICONS = {
     bag: "M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z M3 6h18 M16 10a4 4 0 01-8 0",
@@ -726,12 +732,12 @@
     var onErr = function (m) { p.onError(m); };
     return (
       <div className="imgfield">
-        <Img className="pv" src={p.value} alt="AperÃ§u" w={200} eager />
+        <Img className="pv" src={p.value} alt="Aperçu" w={200} eager />
         <div className="col">
           <button type="button" className="btn btn-soft btn-sm" onClick={function () { openUpload(p.onChange, onErr); }}>
             <Icon name="image" size={18} /> {p.value ? "Changer l'image" : "Ajouter une image"}
           </button>
-          <input className="input" style={{ minHeight: 40 }} type="url" inputMode="url" placeholder="ou coller une adresse https://â¦" value={p.value} onChange={function (e) { p.onChange(e.target.value.trim()); }} />
+          <input className="input" style={{ minHeight: 40 }} type="url" inputMode="url" placeholder="ou coller une adresse https://…" value={p.value} onChange={function (e) { p.onChange(e.target.value.trim()); }} />
           {p.value ? <button type="button" className="link-btn" style={{ textAlign: "left" }} onClick={function () { p.onChange(""); }}>Retirer l'image</button> : null}
         </div>
       </div>
@@ -790,12 +796,12 @@
           <b>{formatMoney(item.price * qty, p.currency)}</b>
         </div>
         <button type="button" className="btn btn-primary btn-block" onClick={function () { p.onConfirm(item, qty); }}>
-          <Icon name="bag" size={18} /> {p.inCart > 0 ? "Mettre Ã  jour le panier" : "Ajouter au panier"}
+          <Icon name="bag" size={18} /> {p.inCart > 0 ? "Mettre à jour le panier" : "Ajouter au panier"}
         </button>
       </div>
     );
     return (
-      <Sheet title="DÃ©tail du produit" onClose={p.onClose} footer={footer}>
+      <Sheet title="Détail du produit" onClose={p.onClose} footer={footer}>
         <Img className="pd-img" src={item.image} alt={item.name} w={900} eager />
         {p.catName ? <span className="pd-cat">{p.catName}</span> : null}
         <h3 className="pd-name">{item.name}</h3>
@@ -816,8 +822,8 @@
         <Sheet title="Commande" onClose={p.onClose} footer={<button type="button" className="btn btn-primary btn-block" onClick={p.onClose}>Fermer</button>}>
           <div className="done">
             <div className="d-ico"><Icon name="check" size={36} /></div>
-            <h3>Commande envoyÃ©e !</h3>
-            <p>Le vendeur a Ã©tÃ© prÃ©venu. Vous retrouverez cette commande dans votre historique SOG.</p>
+            <h3>Commande envoyée !</h3>
+            <p>Le vendeur a été prévenu. Vous retrouverez cette commande dans votre historique SOG.</p>
           </div>
         </Sheet>
       );
@@ -830,7 +836,7 @@
           {p.error ? <div className="note err" role="alert">{p.error}</div> : null}
           <div className="total-row"><span>Total</span><span>{formatMoney(p.total, p.currency)}</span></div>
           <button type="button" className="btn btn-primary btn-block" onClick={p.onSubmit} disabled={p.busy || !p.sogUser}>
-            {p.busy ? "Envoi en coursâ¦" : p.sogUser ? "Valider la commande" : "Connexion requise"}
+            {p.busy ? "Envoi en cours…" : p.sogUser ? "Valider la commande" : "Connexion requise"}
           </button>
         </div>
       );
@@ -849,7 +855,7 @@
                     <Img className="line-img" src={l.p.image} alt="" w={160} />
                     <div style={{ minWidth: 0 }}>
                       <div className="line-name">{l.p.name}</div>
-                      <div className="line-unit">{formatMoney(l.p.price, p.currency)} l'unitÃ©</div>
+                      <div className="line-unit">{formatMoney(l.p.price, p.currency)} l'unité</div>
                       <div className="line-bot">
                         <Stepper small qty={l.qty} max={maxQty(l.p)} onDec={function () { p.onQty(l.p, l.qty - 1); }} onInc={function () { p.onQty(l.p, l.qty + 1); }} />
                         <span className="line-total">{formatMoney(l.p.price * l.qty, p.currency)}</span>
@@ -866,7 +872,7 @@
                 <Field id="o-name" label="Nom complet *">
                   <input id="o-name" className="input" autoComplete="name" value={o.name} onChange={function (e) { setField("name", e.target.value); }} />
                 </Field>
-                <Field id="o-phone" label="TÃ©lÃ©phone *">
+                <Field id="o-phone" label="Téléphone *">
                   <input id="o-phone" className="input" type="tel" inputMode="tel" autoComplete="tel" value={o.phone} onChange={function (e) { setField("phone", e.target.value); }} />
                 </Field>
                 <Field id="o-address" label="Adresse *">
@@ -878,7 +884,7 @@
               </div>
             ) : (
               <div className="note info" style={{ marginTop: 16 }}>
-                Connectez-vous Ã  SOG pour finaliser votre commande. Votre panier est conservÃ©.
+                Connectez-vous à SOG pour finaliser votre commande. Votre panier est conservé.
                 {!IN_FRAME ? <div style={{ marginTop: 10 }}><a className="btn btn-primary btn-sm" href={SOG_URL}>Ouvrir SOG</a></div> : null}
               </div>
             )}
@@ -894,7 +900,7 @@
     var [show, setShow] = useState(false);
     return (
       <Sheet title="Espace vendeur" onClose={p.onClose}
-        footer={<button type="submit" form="login-form" className="btn btn-primary btn-block" disabled={p.busy}>{p.busy ? "Connexionâ¦" : "Se connecter"}</button>}>
+        footer={<button type="submit" form="login-form" className="btn btn-primary btn-block" disabled={p.busy}>{p.busy ? "Connexion…" : "Se connecter"}</button>}>
         <form id="login-form" onSubmit={function (e) { e.preventDefault(); p.onSubmit(email.trim(), password); }}>
           {p.error ? <div className="note err" role="alert">{p.error}</div> : null}
           {p.info ? <div className="note info">{p.info}</div> : null}
@@ -907,7 +913,7 @@
               <button type="button" aria-label={show ? "Masquer" : "Afficher"} onClick={function () { setShow(!show); }}><Icon name={show ? "eyeoff" : "eye"} size={20} /></button>
             </div>
           </Field>
-          <button type="button" className="link-btn" onClick={function () { p.onReset(email.trim()); }}>Mot de passe oubliÃ© ?</button>
+          <button type="button" className="link-btn" onClick={function () { p.onReset(email.trim()); }}>Mot de passe oublié ?</button>
         </form>
       </Sheet>
     );
@@ -931,8 +937,8 @@
       if (!name.trim()) { setErr("Le nom du produit est obligatoire."); return; }
       var pr = Number(String(price).replace(",", "."));
       if (price === "" || isNaN(pr) || pr < 0) { setErr("Indiquez un prix valide."); return; }
-      if (!p.categories.length) { setErr("CrÃ©ez d'abord une catÃ©gorie (onglet CatÃ©gories)."); return; }
-      if (!categoryId) { setErr("Choisissez une catÃ©gorie."); return; }
+      if (!p.categories.length) { setErr("Créez d'abord une catégorie (onglet Catégories)."); return; }
+      if (!categoryId) { setErr("Choisissez une catégorie."); return; }
       p.onSave({
         name: name.trim(), price: pr, image: safeUrl(image), categoryId: Number(categoryId),
         stock: parseStock(stock), description: description.trim()
@@ -948,15 +954,15 @@
           <Field id="p-name" label="Nom *"><input id="p-name" className="input" value={name} onChange={function (e) { setName(e.target.value); }} /></Field>
           <div className="row2">
             <Field id="p-price" label={"Prix (" + p.currency + ") *"}><input id="p-price" className="input" type="number" inputMode="decimal" step="0.01" min="0" value={price} onChange={function (e) { setPrice(e.target.value); }} /></Field>
-            <Field id="p-stock" label="Stock"><input id="p-stock" className="input" type="number" inputMode="numeric" min="0" placeholder="IllimitÃ©" value={stock} onChange={function (e) { setStock(e.target.value); }} /></Field>
+            <Field id="p-stock" label="Stock"><input id="p-stock" className="input" type="number" inputMode="numeric" min="0" placeholder="Illimité" value={stock} onChange={function (e) { setStock(e.target.value); }} /></Field>
           </div>
           <div className="hint" style={{ marginTop: -6, marginBottom: 14 }}>Laissez le stock vide pour ne pas limiter les ventes.</div>
-          <Field id="p-cat" label="CatÃ©gorie *">
+          <Field id="p-cat" label="Catégorie *">
             {p.categories.length ? (
               <select id="p-cat" className="input" value={categoryId} onChange={function (e) { setCategoryId(e.target.value); }}>
                 {p.categories.map(function (c) { return <option key={c.id} value={c.id}>{c.name}</option>; })}
               </select>
-            ) : <div className="note warn">Aucune catÃ©gorie. CrÃ©ez-en une dans l'onglet CatÃ©gories.</div>}
+            ) : <div className="note warn">Aucune catégorie. Créez-en une dans l'onglet Catégories.</div>}
           </Field>
           <Field id="p-desc" label="Description (facultatif)"><textarea id="p-desc" className="input" rows="3" value={description} onChange={function (e) { setDescription(e.target.value); }} /></Field>
         </form>
@@ -969,12 +975,12 @@
     var [err, setErr] = useState("");
     var submit = function (e) {
       e.preventDefault();
-      if (!name.trim()) { setErr("Le nom de la catÃ©gorie est obligatoire."); return; }
+      if (!name.trim()) { setErr("Le nom de la catégorie est obligatoire."); return; }
       p.onSave({ name: name.trim() });
     };
     return (
-      <Sheet title={p.item ? "Modifier la catÃ©gorie" : "Nouvelle catÃ©gorie"} onClose={p.onClose}
-        footer={<button type="submit" form="cat-form" className="btn btn-primary btn-block">{p.item ? "Enregistrer" : "CrÃ©er la catÃ©gorie"}</button>}>
+      <Sheet title={p.item ? "Modifier la catégorie" : "Nouvelle catégorie"} onClose={p.onClose}
+        footer={<button type="submit" form="cat-form" className="btn btn-primary btn-block">{p.item ? "Enregistrer" : "Créer la catégorie"}</button>}>
         <form id="cat-form" onSubmit={submit}>
           {err ? <div className="note err" role="alert">{err}</div> : null}
           <Field id="c-name" label="Nom *"><input id="c-name" className="input" autoFocus value={name} onChange={function (e) { setName(e.target.value); }} /></Field>
@@ -990,11 +996,11 @@
     var orig = p.original;
     var origProducts = {}; orig.products.forEach(function (x) { origProducts[x.id] = JSON.stringify(x); });
     var origCats = {}; orig.categories.forEach(function (x) { origCats[x.id] = JSON.stringify(x); });
-    var catName = function (id) { var c = ed.categories.find(function (x) { return x.id === id; }); return c ? c.name : "Sans catÃ©gorie"; };
+    var catName = function (id) { var c = ed.categories.find(function (x) { return x.id === id; }); return c ? c.name : "Sans catégorie"; };
     var [showToken, setShowToken] = useState(false);
     var [tokenDraft, setTokenDraft] = useState(p.token);
     var s = ed.settings;
-    var tabs = [["products", "Produits"], ["categories", "CatÃ©gories"], ["settings", "RÃ©glages"]];
+    var tabs = [["products", "Produits"], ["categories", "Catégories"], ["settings", "Réglages"]];
 
     var tabBar = (
       <div className="chips-wrap">
@@ -1018,17 +1024,17 @@
             <button type="button" className="btn btn-primary btn-sm" onClick={function () { p.onEditProduct(null); }}><Icon name="plus" size={18} /> Ajouter</button>
           </div>
           {ed.products.length === 0 ? (
-            <Empty title="Aucun produit" text={ed.categories.length ? "Ajoutez votre premier produit." : "CrÃ©ez d'abord une catÃ©gorie, puis ajoutez vos produits."} />
+            <Empty title="Aucun produit" text={ed.categories.length ? "Ajoutez votre premier produit." : "Créez d'abord une catégorie, puis ajoutez vos produits."} />
           ) : (
             <div className="rows">
               {ed.products.map(function (x) {
-                var state = origProducts[x.id] === undefined ? "nouveau" : (origProducts[x.id] !== JSON.stringify(x) ? "modifiÃ©" : "");
+                var state = origProducts[x.id] === undefined ? "nouveau" : (origProducts[x.id] !== JSON.stringify(x) ? "modifié" : "");
                 return (
                   <div key={x.id} className={"row" + (state ? " dirty" : "")}>
                     <Img className="thumb" src={x.image} alt="" w={160} />
                     <div style={{ minWidth: 0 }}>
                       <div className="row-name">{x.name}{state ? <span className="pill">{state}</span> : null}</div>
-                      <div className="row-meta">{formatMoney(x.price, s.currency)} Â· {x.stock === null ? "stock illimitÃ©" : "stock " + x.stock}</div>
+                      <div className="row-meta">{formatMoney(x.price, s.currency)} · {x.stock === null ? "stock illimité" : "stock " + x.stock}</div>
                       <div className="row-meta">{catName(x.categoryId)}</div>
                     </div>
                     <div className="row-actions">
@@ -1046,16 +1052,16 @@
       content = (
         <div>
           <div className="bar">
-            <b>{ed.categories.length} catÃ©gorie{ed.categories.length > 1 ? "s" : ""}</b>
+            <b>{ed.categories.length} catégorie{ed.categories.length > 1 ? "s" : ""}</b>
             <button type="button" className="btn btn-primary btn-sm" onClick={function () { p.onEditCategory(null); }}><Icon name="plus" size={18} /> Ajouter</button>
           </div>
           {ed.categories.length === 0 ? (
-            <Empty title="Aucune catÃ©gorie" text="Les catÃ©gories organisent votre catalogue (ex. Boissons, Ãpicerie)." />
+            <Empty title="Aucune catégorie" text="Les catégories organisent votre catalogue (ex. Boissons, Épicerie)." />
           ) : (
             <div className="rows">
               {ed.categories.map(function (c) {
                 var n = ed.products.filter(function (x) { return x.categoryId === c.id; }).length;
-                var state = origCats[c.id] === undefined ? "nouvelle" : (origCats[c.id] !== JSON.stringify(c) ? "modifiÃ©e" : "");
+                var state = origCats[c.id] === undefined ? "nouvelle" : (origCats[c.id] !== JSON.stringify(c) ? "modifiée" : "");
                 return (
                   <div key={c.id} className={"row cat" + (state ? " dirty" : "")}>
                     <div style={{ minWidth: 0 }}>
@@ -1079,7 +1085,7 @@
           <div className="panel">
             <h3>Ma boutique</h3>
             <Field id="s-title" label="Nom de la boutique"><input id="s-title" className="input" value={s.title} onChange={function (e) { p.onSetting("title", e.target.value); }} /></Field>
-            <Field id="s-tag" label="Slogan (facultatif)"><input id="s-tag" className="input" placeholder="Ex. Produits frais livrÃ©s chez vous" value={s.tagline} onChange={function (e) { p.onSetting("tagline", e.target.value); }} /></Field>
+            <Field id="s-tag" label="Slogan (facultatif)"><input id="s-tag" className="input" placeholder="Ex. Produits frais livrés chez vous" value={s.tagline} onChange={function (e) { p.onSetting("tagline", e.target.value); }} /></Field>
             <Field id="s-cur" label="Devise"><input id="s-cur" className="input" value={s.currency} onChange={function (e) { p.onSetting("currency", e.target.value); }} /></Field>
             <div className="switch">
               <label htmlFor="s-stock">Afficher le stock aux clients</label>
@@ -1095,13 +1101,13 @@
               {SWATCHES.map(function (c) {
                 return <button key={c} type="button" className={"swatch" + (s.accent.toLowerCase() === c ? " on" : "")} style={{ background: c }} aria-label={"Couleur " + c} onClick={function () { p.onSetting("accent", c); }} />;
               })}
-              <input className="color-input" type="color" aria-label="Couleur personnalisÃ©e" value={s.accent} onChange={function (e) { p.onSetting("accent", e.target.value); }} />
+              <input className="color-input" type="color" aria-label="Couleur personnalisée" value={s.accent} onChange={function (e) { p.onSetting("accent", e.target.value); }} />
             </div>
           </div>
 
           <div className="panel">
             <h3>Notifications de commande</h3>
-            <Field id="s-ntfy" label="Sujet ntfy" hint="Installez l'application ntfy et abonnez-vous Ã  ce sujet pour recevoir chaque commande.">
+            <Field id="s-ntfy" label="Sujet ntfy" hint="Installez l'application ntfy et abonnez-vous à ce sujet pour recevoir chaque commande.">
               <input id="s-ntfy" className="input" autoCapitalize="none" value={s.ntfyTopic} onChange={function (e) { p.onSetting("ntfyTopic", e.target.value.trim()); }} />
             </Field>
           </div>
@@ -1109,18 +1115,18 @@
           <div className="panel">
             <h3>Publication des modifications</h3>
             {!p.token ? <div className="note warn">Ajoutez le token GitHub pour pouvoir publier vos changements.</div> : null}
-            <Field id="s-token" label="Token GitHub" hint={"Token Â« fine-grained Â» limitÃ© au dÃ©pÃ´t " + p.repoName + ", droit Contents : Read and write. Il reste uniquement dans ce navigateur."}>
+            <Field id="s-token" label="Token GitHub" hint={"Token « fine-grained » limité au dépôt " + p.repoName + ", droit Contents : Read and write. Il reste uniquement dans ce navigateur."}>
               <div className="pw">
                 <input id="s-token" className="input" type={showToken ? "text" : "password"} autoComplete="off" autoCapitalize="none" value={tokenDraft} onChange={function (e) { setTokenDraft(e.target.value); }} />
                 <button type="button" aria-label={showToken ? "Masquer" : "Afficher"} onClick={function () { setShowToken(!showToken); }}><Icon name={showToken ? "eyeoff" : "eye"} size={20} /></button>
               </div>
             </Field>
             <button type="button" className="btn btn-soft btn-block" onClick={function () { p.onSaveToken(tokenDraft.trim()); }}>
-              <Icon name="check" size={18} /> {p.token && tokenDraft.trim() === p.token ? "Token enregistrÃ©" : "Enregistrer le token"}
+              <Icon name="check" size={18} /> {p.token && tokenDraft.trim() === p.token ? "Token enregistré" : "Enregistrer le token"}
             </button>
           </div>
 
-          <button type="button" className="btn btn-ghost btn-block" style={{ marginBottom: 16 }} onClick={p.onLogout}><Icon name="logout" size={18} /> Se dÃ©connecter</button>
+          <button type="button" className="btn btn-ghost btn-block" style={{ marginBottom: 16 }} onClick={p.onLogout}><Icon name="logout" size={18} /> Se déconnecter</button>
         </div>
       );
     }
@@ -1149,7 +1155,7 @@
     var cartKey = "cart_" + repoName;
     var tokenKey = "fgt_token_" + repoName;
 
-    // ---- Ã©tats ----
+    // ---- états ----
     var [loadState, setLoadState] = useState("loading");
     var [loadError, setLoadError] = useState("");
     var [data, setData] = useState(null);
@@ -1204,13 +1210,13 @@
         return;
       }
       var res = await fetchCatalog(repoName, withToken ? token : "");
-      if (res.status === "error") { setLoadError(res.message || "Erreur rÃ©seau"); setLoadState("error"); return; }
+      if (res.status === "error") { setLoadError(res.message || "Erreur réseau"); setLoadState("error"); return; }
       var cat = normalizeCatalog(res.status === "ok" ? res.json : null, vendeur);
       setData(cat); setEditable(clone(cat)); setLoadState("ready");
     };
     useEffect(function () { loadCatalog(false); }, []);
 
-    // ---- thÃ¨me + titre ----
+    // ---- thème + titre ----
     var themeAccent = view === "admin" && editable ? editable.settings.accent : (data ? data.settings.accent : "#0f766e");
     useEffect(function () { applyTheme(themeAccent); }, [themeAccent]);
     useEffect(function () { if (data) document.title = data.settings.title; }, [data && data.settings.title]);
@@ -1256,7 +1262,7 @@
       return function () { window.removeEventListener("message", onMessage); clearTimeout(t); };
     }, []);
 
-    // ---- prÃ©remplissage de la commande ----
+    // ---- préremplissage de la commande ----
     useEffect(function () {
       if (!sogUser) return;
       setOrder(function (o) {
@@ -1272,7 +1278,7 @@
     // ---- panier persistant ----
     useEffect(function () { lsSet(cartKey, JSON.stringify(cart)); }, [cart]);
 
-    // ---- blocage du dÃ©filement quand une feuille est ouverte ----
+    // ---- blocage du défilement quand une feuille est ouverte ----
     var anyOverlay = !!(detailId !== null || cartOpen || loginOpen || form || confirm);
     useEffect(function () {
       document.body.style.overflow = anyOverlay ? "hidden" : "";
@@ -1302,12 +1308,12 @@
     // ---- commande ----
     var submitOrder = async function () {
       setOrderError("");
-      if (demoMode) { setOrderError("Mode dÃ©mo : aucune commande n'est envoyÃ©e."); return; }
-      if (!sogUser) { setOrderError("Connectez-vous Ã  SOG pour valider la commande."); return; }
+      if (demoMode) { setOrderError("Mode démo : aucune commande n'est envoyée."); return; }
+      if (!sogUser) { setOrderError("Connectez-vous à SOG pour valider la commande."); return; }
       if (!lines.length) return;
       var name = order.name.trim(), address = order.address.trim(), phone = order.phone.trim();
-      if (!name || !address || !phone) { setOrderError("Merci de remplir le nom, le tÃ©lÃ©phone et l'adresse."); return; }
-      if (phone.replace(/\D/g, "").length < 8) { setOrderError("Le numÃ©ro de tÃ©lÃ©phone semble invalide."); return; }
+      if (!name || !address || !phone) { setOrderError("Merci de remplir le nom, le téléphone et l'adresse."); return; }
+      if (phone.replace(/\D/g, "").length < 8) { setOrderError("Le numéro de téléphone semble invalide."); return; }
 
       var currency = data.settings.currency;
       var items = lines.map(function (l) { return { name: l.p.name, quantity: l.qty, price: l.p.price }; });
@@ -1328,19 +1334,19 @@
           comments: order.comments.trim()
         });
       } catch (err) {
-        setOrderError("L'enregistrement de la commande a Ã©chouÃ©. VÃ©rifiez votre connexion puis rÃ©essayez.");
+        setOrderError("L'enregistrement de la commande a échoué. Vérifiez votre connexion puis réessayez.");
         setIsOrdering(false);
         return;
       }
 
-      // Demande Ã  SOG de recharger l'historique du client
+      // Demande à SOG de recharger l'historique du client
       if (IN_FRAME) window.parent.postMessage({ type: "SOG_ORDER_SAVED", payload: { userId: sogUser.uid, email: sogUser.email } }, "*");
 
       // Notification au vendeur (ntfy)
       var topic = data.settings.ntfyTopic;
       if (topic) {
-        var msg = "RÃCAPITULATIF\n\nClient : " + name + "\nAdresse : " + address + "\nTÃ©l : " + phone +
-          "\nRemarque : " + (order.comments.trim() || "Aucune") + "\n\n----------------\n\nArticles commandÃ©s :\n" +
+        var msg = "RÉCAPITULATIF\n\nClient : " + name + "\nAdresse : " + address + "\nTél : " + phone +
+          "\nRemarque : " + (order.comments.trim() || "Aucune") + "\n\n----------------\n\nArticles commandés :\n" +
           items.map(function (i) { return "  " + i.name + " x" + i.quantity + " = " + (i.price * i.quantity).toFixed(2) + " " + currency; }).join("\n") +
           "\n\n----------------\n\nTOTAL : " + cartTotal.toFixed(2) + " " + currency;
         fetch("https://ntfy.sh", {
@@ -1363,7 +1369,7 @@
       setView("admin");
       setAdminTab("products");
       window.scrollTo(0, 0);
-      if (token) { await loadCatalog(true); }   // version la plus rÃ©cente avant modification
+      if (token) { await loadCatalog(true); }   // version la plus récente avant modification
     };
     var handleAdminButton = function () { if (firebaseUser && isAdmin) openAdmin(); else openLogin(); };
     var handleLogin = async function (email, password) {
@@ -1380,7 +1386,7 @@
         }
       } catch (error) {
         var c = error.code || "";
-        var m = "Connexion impossible. RÃ©essayez.";
+        var m = "Connexion impossible. Réessayez.";
         if (c === "auth/invalid-credential" || c === "auth/wrong-password" || c === "auth/user-not-found") m = "Email ou mot de passe incorrect.";
         else if (c === "auth/invalid-email") m = "Adresse email invalide.";
         else if (c === "auth/too-many-requests") m = "Trop de tentatives. Patientez quelques minutes.";
@@ -1393,21 +1399,21 @@
       setLoginError(""); setLoginInfo("");
       if (!email) { setLoginError("Saisissez d'abord votre email."); return; }
       auth.sendPasswordResetEmail(email)
-        .then(function () { setLoginInfo("Email de rÃ©initialisation envoyÃ© Ã  " + email + "."); })
-        .catch(function () { setLoginError("Impossible d'envoyer l'email de rÃ©initialisation."); });
+        .then(function () { setLoginInfo("Email de réinitialisation envoyé à " + email + "."); })
+        .catch(function () { setLoginError("Impossible d'envoyer l'email de réinitialisation."); });
     };
     var handleLogout = function () {
-      auth.signOut().then(function () { setView("shop"); notify("DÃ©connectÃ©.", "info"); });
+      auth.signOut().then(function () { setView("shop"); notify("Déconnecté.", "info"); });
     };
 
-    // ---- Ã©dition du catalogue ----
+    // ---- édition du catalogue ----
     var dirty = !!(data && editable) && JSON.stringify(data) !== JSON.stringify(editable);
     var changeCount = dirty ? countChanges(data, editable) : 0;
 
     var leaveAdmin = function () {
       if (!dirty) { setView("shop"); return; }
       setConfirm({
-        title: "Quitter sans enregistrer ?", text: "Vos modifications non enregistrÃ©es seront perdues.",
+        title: "Quitter sans enregistrer ?", text: "Vos modifications non enregistrées seront perdues.",
         yesLabel: "Quitter", danger: true,
         onYes: function () { setEditable(clone(data)); setConfirm(null); setView("shop"); }
       });
@@ -1447,7 +1453,7 @@
     };
     var deleteProduct = function (p) {
       setConfirm({
-        title: "Supprimer ce produit ?", text: "Â« " + p.name + " Â» sera retirÃ© du catalogue aprÃ¨s l'enregistrement.",
+        title: "Supprimer ce produit ?", text: "« " + p.name + " » sera retiré du catalogue après l'enregistrement.",
         yesLabel: "Supprimer", danger: true,
         onYes: function () {
           setEditable(function (prev) { return Object.assign({}, prev, { products: prev.products.filter(function (x) { return x.id !== p.id; }) }); });
@@ -1458,8 +1464,8 @@
     var deleteCategory = function (c) {
       var n = editable.products.filter(function (x) { return x.categoryId === c.id; }).length;
       setConfirm({
-        title: "Supprimer cette catÃ©gorie ?",
-        text: n ? "Les " + n + " produit" + (n > 1 ? "s" : "") + " de Â« " + c.name + " Â» seront aussi supprimÃ©s." : "Â« " + c.name + " Â» sera supprimÃ©e.",
+        title: "Supprimer cette catégorie ?",
+        text: n ? "Les " + n + " produit" + (n > 1 ? "s" : "") + " de « " + c.name + " » seront aussi supprimés." : "« " + c.name + " » sera supprimée.",
         yesLabel: "Supprimer", danger: true,
         onYes: function () {
           setEditable(function (prev) {
@@ -1476,18 +1482,18 @@
       if (!value) { notify("Saisissez un token valide.", "error"); return; }
       lsSet(tokenKey, value);
       setToken(value);
-      notify("Token enregistrÃ© sur cet appareil.", "success");
+      notify("Token enregistré sur cet appareil.", "success");
     };
     var saveCatalog = async function () {
-      if (!token) { setAdminTab("settings"); notify("Ajoutez d'abord le token GitHub (onglet RÃ©glages).", "error"); return; }
+      if (!token) { setAdminTab("settings"); notify("Ajoutez d'abord le token GitHub (onglet Réglages).", "error"); return; }
       setIsSaving(true);
       try {
         var payload = serializeCatalog(editable);
         await githubSave(repoName, token, payload);
         setData(clone(editable));
-        notify("EnregistrÃ©. Les clients verront les changements d'ici 1 Ã  2 minutes.", "success");
+        notify("Enregistré. Les clients verront les changements d'ici 1 à 2 minutes.", "success");
       } catch (err) {
-        notify("Ãchec de l'enregistrement : " + err.message, "error");
+        notify("Échec de l'enregistrement : " + err.message, "error");
       }
       setIsSaving(false);
     };
@@ -1502,7 +1508,7 @@
       <header className="topbar">
         <div className="topbar-in">
           {view === "admin" ? (
-            <button type="button" className="icon-btn" aria-label="Retour Ã  la boutique" onClick={leaveAdmin}><Icon name="back" /></button>
+            <button type="button" className="icon-btn" aria-label="Retour à la boutique" onClick={leaveAdmin}><Icon name="back" /></button>
           ) : null}
           <div className="brand">
             {view === "shop" ? (
@@ -1515,7 +1521,7 @@
           {view === "shop" ? (
             <div style={{ display: "flex", gap: 2 }}>
               {!demoMode ? (
-                <button type="button" className="icon-btn" aria-label={isAdmin ? "GÃ©rer la boutique" : "Espace vendeur"} onClick={handleAdminButton}>
+                <button type="button" className="icon-btn" aria-label={isAdmin ? "Gérer la boutique" : "Espace vendeur"} onClick={handleAdminButton}>
                   <Icon name={isAdmin ? "sliders" : "lock"} size={20} />
                 </button>
               ) : null}
@@ -1525,13 +1531,13 @@
               </button>
             </div>
           ) : (
-            <button type="button" className="icon-btn" aria-label="Se dÃ©connecter" onClick={handleLogout}><Icon name="logout" size={20} /></button>
+            <button type="button" className="icon-btn" aria-label="Se déconnecter" onClick={handleLogout}><Icon name="logout" size={20} /></button>
           )}
         </div>
       </header>
     );
 
-    // ---- Ã©tats de chargement / erreur ----
+    // ---- états de chargement / erreur ----
     if (loadState === "loading") {
       return (
         <div className={rootClass}>
@@ -1551,8 +1557,8 @@
         <div className={rootClass}>
           {header}
           <div className="container page">
-            <Empty icon="alert" title="Chargement impossible" text={"Le catalogue n'a pas pu Ãªtre chargÃ© (" + loadError + ")."}
-              action={<button type="button" className="btn btn-primary" onClick={function () { setLoadState("loading"); loadCatalog(false); }}>RÃ©essayer</button>} />
+            <Empty icon="alert" title="Chargement impossible" text={"Le catalogue n'a pas pu être chargé (" + loadError + ")."}
+              action={<button type="button" className="btn btn-primary" onClick={function () { setLoadState("loading"); loadCatalog(false); }}>Réessayer</button>} />
           </div>
         </div>
       );
@@ -1562,7 +1568,7 @@
     var currency = settings.currency;
     var catNameOf = function (id) { var c = data.categories.find(function (x) { return x.id === id; }); return c ? c.name : ""; };
 
-    // ---- produits filtrÃ©s (en stock d'abord) ----
+    // ---- produits filtrés (en stock d'abord) ----
     var q = fold(search.trim());
     var filtered = data.products.filter(function (p) {
       if (catId !== null && p.categoryId !== catId) return false;
@@ -1589,9 +1595,9 @@
                   <div className="hero-title">{settings.tagline || "Parcourez le catalogue et commandez en quelques clics."}</div>
                   <div className="hero-chips">
                     <span className="hero-chip">{data.products.length} produit{data.products.length > 1 ? "s" : ""}</span>
-                    {demoMode ? <span className="hero-chip">AperÃ§u du template</span>
-                      : sogUser ? <span className="hero-chip"><Icon name="check" size={14} /> {sogUser.name || "ConnectÃ©"}</span>
-                      : sogChecked ? <span className="hero-chip">Mode invitÃ©</span> : null}
+                    {demoMode ? <span className="hero-chip">Aperçu du template</span>
+                      : sogUser ? <span className="hero-chip"><Icon name="check" size={14} /> {sogUser.name || "Connecté"}</span>
+                      : sogChecked ? <span className="hero-chip">Mode invité</span> : null}
                   </div>
                   {!sogUser && sogChecked && !demoMode ? (
                     <div className="hero-sub">
@@ -1602,7 +1608,7 @@
                 </div>
                 <div className="search">
                   <span className="s-icon"><Icon name="search" size={20} /></span>
-                  <input type="search" enterKeyHint="search" placeholder="Rechercher un produitâ¦" aria-label="Rechercher un produit" value={search} onChange={function (e) { setSearch(e.target.value); }} />
+                  <input type="search" enterKeyHint="search" placeholder="Rechercher un produit…" aria-label="Rechercher un produit" value={search} onChange={function (e) { setSearch(e.target.value); }} />
                   {search ? <button type="button" className="s-clear" aria-label="Effacer la recherche" onClick={function () { setSearch(""); }}><Icon name="x" size={18} /></button> : null}
                 </div>
               </div>
@@ -1610,7 +1616,7 @@
 
             {visibleCats.length > 0 ? (
               <div className="chips-wrap">
-                <div className="chips" role="tablist" aria-label="CatÃ©gories">
+                <div className="chips" role="tablist" aria-label="Catégories">
                   <button type="button" className={"chip" + (catId === null ? " on" : "")} onClick={function () { setCatId(null); }}>Tous</button>
                   {visibleCats.map(function (c) {
                     return <button key={c.id} type="button" className={"chip" + (catId === c.id ? " on" : "")} onClick={function () { setCatId(c.id); }}>{c.name}</button>;
@@ -1622,8 +1628,8 @@
             <main className={"container page" + (dockVisible ? " has-dock" : "")}>
               {filtered.length === 0 ? (
                 <Empty icon={search ? "search" : "bag"}
-                  title={search ? "Aucun rÃ©sultat" : "Aucun produit pour le moment"}
-                  text={search ? "Essayez un autre mot-clÃ© ou une autre catÃ©gorie." : "Revenez bientÃ´t, le catalogue se remplit."}
+                  title={search ? "Aucun résultat" : "Aucun produit pour le moment"}
+                  text={search ? "Essayez un autre mot-clé ou une autre catégorie." : "Revenez bientôt, le catalogue se remplit."}
                   action={search || catId !== null ? <button type="button" className="btn btn-soft" onClick={function () { setSearch(""); setCatId(null); }}>Voir tout le catalogue</button> : null} />
               ) : (
                 <div className="grid">
@@ -1636,7 +1642,7 @@
                   })}
                 </div>
               )}
-              <div className="footer">{shopTitle} Â· PropulsÃ© par SOG</div>
+              <div className="footer">{shopTitle} · Propulsé par SOG</div>
             </main>
           </div>
         ) : (
@@ -1662,7 +1668,7 @@
         {view === "admin" && dirty ? (
           <div className="dock">
             <button type="button" className="dock-btn" onClick={saveCatalog} disabled={isSaving}>
-              <span className="dock-l"><Icon name="check" size={22} /> {isSaving ? "Enregistrementâ¦" : "Enregistrer"}</span>
+              <span className="dock-l"><Icon name="check" size={22} /> {isSaving ? "Enregistrement…" : "Enregistrer"}</span>
               <span>{changeCount} modification{changeCount > 1 ? "s" : ""}</span>
             </button>
           </div>
@@ -1698,7 +1704,7 @@
             onYes={confirm.onYes} onNo={function () { setConfirm(null); }} />
         ) : null}
 
-        {/* ---- message (masquÃ© quand une feuille est ouverte : les erreurs s'affichent alors dans la feuille) ---- */}
+        {/* ---- message (masqué quand une feuille est ouverte : les erreurs s'affichent alors dans la feuille) ---- */}
         {toast && !anyOverlay ? (
           <div className="toasts" style={{ bottom: toastBottom }} role="status" aria-live="polite">
             <div className={"toast " + toast.type}>{toast.text}</div>
